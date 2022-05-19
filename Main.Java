@@ -231,6 +231,8 @@ public class Main{
             writer.append(String.format("%.2f", H2Hpct) + " %\n");
         }
         writer.close();
+
+        // generate the records for each # of racers and put it in a new file, Records.csv
         
     }
 }
