@@ -11,7 +11,8 @@ To run the program with a new Grand Prix, do "javac Main.Java", "java Main #Race
 Example:
 "java Main 10,4,JC,102,JP,98,TE,87,LV,85"
 This will add a grand prix with 10 races and 4 players, with John winning with 102, Jaden 2nd with 98, Espo 3rd with 87, and Luca 4th with 85
-DO NOT ADD ANY SPACES INTO THE STRING OF INPUT. MAKE SURE YOU GET THE INITIALS CORRECT
+DO NOT ADD ANY SPACES INTO THE STRING OF INPUT. MAKE SURE YOU GET THE INITIALS CORRECT. THE INITIALS AND SCORES MUST BE IN ORDER OF PLACE 1,2,3,4. 
+FOR EXAMPLE, DO NOT PUT THE PLAYER WITH THE LEAST # OF POINTS AT THE START OF THE STRING.
 
 If you are adding a new player not in the stats, it's very easy. Just type in everything normally and a prompt will pop up asking you to enter
 the new player's name. It will create the stats and add them to the sheet and PlayerData. 
