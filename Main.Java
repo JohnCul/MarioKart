@@ -172,7 +172,7 @@ public class Main{
         // do the stats for each player: output a leaderboard
 
         // need to implement true PPR, SOS, win percent, h2h win percent
-        BufferedWriter writer = new BufferedWriter(new FileWriter("stats.csv", false));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("2021_22stats.csv", false));
         writer.append("PlayerName,Initials,GrandPrixsPlayed,RacesPlayed,TotalPoints,PPR,TruePPR,AveragePlace,Wins,WinPercent,QualityWinPct,H2HWinPct\n");
         for(int p = 0; p < controller.getPlayers().size(); p++){
             writer.append(controller.getPlayers().get(p).getName() + ",");
