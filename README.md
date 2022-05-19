@@ -1,6 +1,6 @@
 # MarioKart
-Stats collection for the new season
-All the stats are in Stats.csv in the main folder
+Stats collection for the new season.
+All the stats from last season are in 2021_22stats.csv in the main folder
 
 DO NOT TOUCH THE PLAYERDATA FOLDER! This is what saves and loads the stats
 
