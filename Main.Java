@@ -173,7 +173,7 @@ public class Main{
 
         // need to implement true PPR, SOS, win percent, h2h win percent
         BufferedWriter writer = new BufferedWriter(new FileWriter("stats.csv", false));
-        writer.append("PlayerName,Initials,GrandPrixsPlayed,RacesPlayed,TotalPoints,PPR,TruePPR,AveragePlace,Wins,WinPercent,H2HWinPct\n");
+        writer.append("PlayerName,Initials,GrandPrixsPlayed,RacesPlayed,TotalPoints,PPR,TruePPR,AveragePlace,Wins,WinPercent,QualityWinPct,H2HWinPct\n");
         for(int p = 0; p < controller.getPlayers().size(); p++){
             writer.append(controller.getPlayers().get(p).getName() + ",");
             writer.append(controller.getPlayers().get(p).getInitials() + ",");
@@ -205,6 +205,16 @@ public class Main{
             // win percent
             double winpct = 100 * (double) firstCount / (double) controller.getPlayers().get(p).getGames().size();
             writer.append(String.format("%.2f", winpct) + " %,");
+
+
+            // quality win pct: (# first place * (total racers faced / total GP played) / 3) / total # GP
+            int numGP = controller.getPlayers().get(p).getGames().size();
+            int totalRacersFaced = 0;
+            for(int h = 0; h < controller.getPlayers().get(p).getGames().size(); h++){
+                totalRacersFaced += (controller.getPlayers().get(p).getGames().get(h).getPlayers().size() - 1);
+            }
+            double qualWinPct = 100 * (((double) firstCount * ((double) totalRacersFaced / (double) numGP) / 3) / (double) numGP);
+            writer.append(String.format("%.2f", qualWinPct) + " %,");
 
             //h2h win percent
             int winCount = 0;
