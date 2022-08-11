@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 // input looks like this: numraces,numplayers,player1,score1,2,2,3,3,4,4
 // example: java Main 8,4,JC,90,JP,88,TE,80,LV,76
+// to get the stats sheet regenerated, do java Main Stats
 public class Main{
 
     private ArrayList<Player> players;
@@ -18,7 +19,7 @@ public class Main{
     public static void main(String[] args) throws IOException{
         Main controller = new Main();
         // read in from spreadsheets
-        File directoryPath = new File("PlayerData");
+        File directoryPath = new File("PlayerData2022_23/");
         File filesList[] = directoryPath.listFiles();
         for(File fp : filesList) {
             System.out.println("File name: "+fp.getName());
@@ -93,10 +94,6 @@ public class Main{
             }
             GrandPrix newGame = new GrandPrix(numRaces, numPlayers, playersInGame);
 
-
-
-
-
             // now that the game is loaded in, we have to add it to the players that played in it
             // have to check to see if the player is in the system: list of Players
             for(int i = 0; i < newGame.getPlayers().size(); i++){
@@ -136,11 +133,9 @@ public class Main{
                 }
             }
 
-
-
             // write all player data to the CSV files
             for(int p = 0; p < controller.getPlayers().size(); p++){
-                String path = "PlayerData/" +  controller.getPlayers().get(p).getInitials() + ".csv";
+                String path = "PlayerData2022_23/" +  controller.getPlayers().get(p).getInitials() + ".csv";
                 BufferedWriter writer = new BufferedWriter(new FileWriter(path, false));
                 // write the first line
                 writer.append(controller.getPlayers().get(p).getName() + ",");
@@ -172,7 +167,7 @@ public class Main{
         // do the stats for each player: output a leaderboard
 
         // need to implement true PPR, SOS, win percent, h2h win percent
-        BufferedWriter writer = new BufferedWriter(new FileWriter("2021_22stats.csv", false));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("2022_23stats.csv", false));
         writer.append("PlayerName,Initials,GrandPrixsPlayed,RacesPlayed,TotalPoints,PPR,TruePPR,AveragePlace,Wins,WinPercent,QualityWinPct,H2HWinPct\n");
         for(int p = 0; p < controller.getPlayers().size(); p++){
             writer.append(controller.getPlayers().get(p).getName() + ",");
